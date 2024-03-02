@@ -1,0 +1,28 @@
+class Solution {
+public:
+#define ll long long int 
+    int minOperations(vector<int>& v, int k) {
+        map<ll,ll> m;int ans = 0;
+        for(auto i : v)m[i]++;
+        auto it = m.begin();
+        while(it != m.end()){
+            ll f = it->first; 
+            if(f >= k)break;
+            m[f]--;
+            if(m[f] == 0)m.erase(f),it++;
+            ll s = it->first;
+            m[s]--;
+            if(m[s] == 0)m.erase(s),it++;
+            
+            ll x = min(f,s)*2 + max(f,s);
+            
+            m[x]++; 
+            ans++;
+            it = m.begin();
+        }
+
+
+            return ans;
+        
+    }
+};
