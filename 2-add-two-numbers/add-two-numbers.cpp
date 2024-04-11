@@ -11,8 +11,7 @@ public:
             ListNode *node = new ListNode(sum % 10);
             temp -> next = node;
             temp = temp -> next;
-            if(sum > 9)car = 1;
-            else car = 0;
+            car = sum / 10;
             if(t1)t1 = t1 -> next;
             if(t2)t2 = t2 -> next;
         }
