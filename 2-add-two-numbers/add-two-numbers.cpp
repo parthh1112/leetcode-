@@ -9,7 +9,6 @@ public:
             int d1=0, d2=0;
             if(t1)d1 = t1 -> val;
             if(t2)d2 = t2 -> val;
-            cout<<d1<<" "<<d2<<endl;
             int sum = d1 + d2 + car;
             ListNode *node = new ListNode(0);
             node -> val = (sum % 10);
