@@ -7,19 +7,13 @@ public:
         return cnt;
     }
     ListNode* rotateRight(ListNode* head, int k) {
-        if((!head) || (!head -> next) || (k == 0)){
-            return head;
-        }
+        if((!head) || (!head -> next) || (k == 0)) return head;
         int l = length(head);
         if(k != 1 && (k % l == 0))return head;
-
         ListNode *temp = head;
         k = k % l;
         int x = l - k;
-        while(x!=1){
-            x--;
-            temp = temp -> next;
-        }
+        while(x!=1) x--,temp = temp -> next;
         ListNode *newHead = temp -> next;
         temp -> next = nullptr;
         temp = newHead;
