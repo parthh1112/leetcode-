@@ -5,13 +5,11 @@ int f = -1;
         if(!root)return 0;
         int l = findans(root->left);
         int r = findans(root->right);
-        int x = l + r + 1;
-        f = max(f,x);
+        f = max(f,l + r + 1);
         return max(l,r)+1;
     }
     int diameterOfBinaryTree(TreeNode* root) {
         int ans = findans(root);
-        cout<<f;
         return f-1;
     }
 };
