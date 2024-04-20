@@ -1,7 +1,7 @@
 class Solution {
 public:
     int ch (TreeNode *root,bool &ans){
-        if(!root)return 0;
+        if(!root || !ans)return 0;
         int l = ch(root->left,ans)+1;
         int r = ch(root->right,ans)+1;
         if(abs(l-r) >= 2){
