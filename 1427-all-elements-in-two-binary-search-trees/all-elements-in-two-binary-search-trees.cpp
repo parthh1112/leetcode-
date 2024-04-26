@@ -1,20 +1,22 @@
 class Solution {
 public:
-    void mm(TreeNode *r,multiset<int> &m){
+    void mm(TreeNode *r,priority_queue<int, vector<int>, greater<int>>  &m){
         if(!r)return ;
 
         mm(r->left,m);
-        m.insert(r->val);
+        m.push(r->val);
         mm(r->right,m);
     }
     vector<int> getAllElements(TreeNode* r1, TreeNode* r2) {
-        multiset<int> m;
+        priority_queue<int, vector<int>, greater<int>> m;
+
         vector<int> v;
 
         mm(r1,m);
         mm(r2,m);
-
-        for(auto i : m)v.push_back(i);
+while(m.size()){
+    v.push_back(m.top());m.pop();
+}
         return v;
     }
 };
