@@ -1,7 +1,7 @@
 class Solution {
 public:
     TreeNode* trimBST(TreeNode* root, int l, int r) {
-        if(!root)return root;
+        if(!root)return nullptr;
 
         if(root->val >= l && root->val <= r){ // valid
             root->left = trimBST(root->left,l,r);
