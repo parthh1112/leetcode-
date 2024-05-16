@@ -1,9 +1,10 @@
 class Solution {
 public:
     bool evaluateTree(TreeNode* root) {
-        if(!root->left)return root->val;
-        bool left = evaluateTree(root->left);
-        bool right = evaluateTree(root->right);
-        return (root->val == 3) ? (left & right) : (left | right);
+        if(!root->left)return root->val; 
+        return (root->val == 3) ? 
+        (evaluateTree(root->left) & evaluateTree(root->right))
+        :
+        (evaluateTree(root->left) | evaluateTree(root->right));
     }
 };
