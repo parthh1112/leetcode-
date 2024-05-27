@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int l = scanner.nextInt();
+        int r = scanner.nextInt();
+        int k = scanner.nextInt();
+        int ans = 0;
+        while(l <= r){
+            int num = l;
+            while(num != 0){
+                if(num % 10 == k)ans++;
+                num /= 10;
+            }
+            l++;
+        }
+        System.out.print(ans);
+    }
+}
