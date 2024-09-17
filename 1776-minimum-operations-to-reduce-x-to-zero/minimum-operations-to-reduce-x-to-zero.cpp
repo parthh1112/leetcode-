@@ -4,8 +4,7 @@ public:
         int summ = 0;
         for(auto i : v)summ += i;
         if(summ == x)return v.size();
-        int window = summ - x;
-        // now find the max window size of sum window
+        int window = summ - x; 
         int i = 0, j = 0, sum = 0, w = -1, n = v.size(); 
         while(i < n){ 
             sum += v[i];
@@ -19,8 +18,7 @@ public:
                 j++;
             }
             i++;
-        }
-        cout<<w;
+        } 
         return (w == -1) ? w : n-w;
     }
 };
