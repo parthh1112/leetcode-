@@ -12,12 +12,7 @@ public:
             }
             i++;
         }
-        if(cnt == 1){
-            ans = max((i - j - 1),ans);
-            while(v[j] != 0) j++;
-            cnt = 1;
-            j++;
-        }
+        if(cnt == 1) ans = max((i - j - 1),ans); 
         return ans == -1 ? n-1 : ans;
     }
 };
