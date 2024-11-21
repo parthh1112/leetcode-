@@ -7,8 +7,7 @@ public:
         
         for(auto i : g){
             int ii = i[0];
-            int jj = i[1];
-            v[ii][jj] = -1;
+            int jj = i[1]; 
             for(int i=ii-1;i>=0;i--){
                 if(v[i][jj] == -1)break;
                 v[i][jj] = 1;
