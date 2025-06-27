@@ -37,18 +37,12 @@ public:
         }
         return ans;
     }
-    vector<int> searchRange(vector<int>& v, int t) {
+    vector<int> searchRange(vector<int>& v, int t) { 
         if(v.size() == 0)return {-1,-1};
-        vector<int> ans = {-1,-1};
         int f = firstOcc(v,t);
-        if(v[f] != t)return ans;
-        cout<<f<<endl;
-        // return {0,0};
-        ans[0] = f;
+        if(v[f] != t)return {-1,-1};  
         int s = sec(v,t);
-        if(v[s-1] != t){
-            return {f,f};
-        }
+        // if(v[s-1] != t) return {f,f};
         return {f,s-1}; 
     }
 };
