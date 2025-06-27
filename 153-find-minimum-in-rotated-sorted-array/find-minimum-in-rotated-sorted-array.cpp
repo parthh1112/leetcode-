@@ -4,7 +4,6 @@ public:
         int l = 0, r = nums.size() - 1;
         int ans = INT_MAX;
         while(l <= r){
-            cout<<l<<" "<<r<<endl;
             int mid = l + ((r - l) / 2);
             if(nums[mid] >= nums[l]){
                 ans = min(ans,nums[l]);
