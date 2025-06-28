@@ -2,8 +2,7 @@ class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
         int ans = -1,l = 0,r = nums.size() - 1;
-        while(l <= r){ 
-            if(l == r) return nums[l];
+        while(l <= r){  
             int mid = l + ((r - l) / 2);
             int left = mid - l;
             int right = r - mid; 
