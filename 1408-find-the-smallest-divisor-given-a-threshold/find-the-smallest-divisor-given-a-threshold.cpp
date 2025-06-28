@@ -12,21 +12,13 @@ public:
         return sum;
     }
     int smallestDivisor(vector<int>& nums, int th) {
-        int l = 1;
-        int r = *max_element(nums.begin(),nums.end());
-        int ans = -1;
+        int l = 1, r = *max_element(nums.begin(),nums.end()), ans = -1;
         while(l <= r){
             int mid = l + ((r - l) / 2);
             int tans = fun(nums,mid);
-            if(tans < th){
-                r = mid - 1;
-            }
-            else if(tans > th){
-                l = mid + 1;
-            }
-            else{
-                r = mid - 1;
-            }
+            if(tans <= th) r = mid - 1;
+            else if(tans > th) l = mid + 1;
+            // else r = mid - 1;
         }
         return l;        
     }
