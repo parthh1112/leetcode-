@@ -16,7 +16,6 @@ public:
         int r = *max_element(nums.begin(),nums.end());
         int ans = -1;
         while(l <= r){
-            cout<<l<<" "<<r<<endl;
             int mid = l + ((r - l) / 2);
             int tans = fun(nums,mid);
             if(tans < th){
