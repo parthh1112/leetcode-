@@ -12,7 +12,6 @@ public:
             }
         }
         if(l == 0)return k;
-        cout<<l<<" "<<r<<endl;
         int dif = arr[r] - (r + 1);
         int add = k - dif; // 2
         if(l == arr.size()) return k + arr[arr.size() - 1] - dif;
