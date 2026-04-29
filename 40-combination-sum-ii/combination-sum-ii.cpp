@@ -8,10 +8,10 @@ public:
         }
         if(ind == v.size())return ;
         for(int i=ind;i<v.size();i++){ 
+            if(i > ind &&  v[i] == v[i-1])continue;
             help.push_back(v[i]);
             f(v,t-v[i],i+1,help,ans);
             help.pop_back();
-            while(i < v.size()-1 &&  v[i] == v[i+1])i++;
         }
     }
     vector<vector<int>> combinationSum2(vector<int>& v, int t) {
