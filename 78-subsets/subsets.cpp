@@ -1,18 +1,18 @@
 class Solution {
 public:
-    void f(vector<int> &nums,int take,vector<int> add,vector<vector<int>> &ans){
-        if(take == nums.size()){
-            ans.push_back(add);
+    void f(vector<int> &v,int i,vector<int> help,vector<vector<int>> &ans){
+        if(i == v.size()){
+            ans.push_back(help);
             return ;
         }
-        add.push_back(nums[take]);
-        f(nums,take+1,add,ans);
-        add.pop_back();
-        f(nums,take+1,add,ans);
+        f(v,i+1,help,ans);
+        help.push_back(v[i]);
+        f(v,i+1,help,ans);
+        help.pop_back();
     }
-    vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> ans;
-        f(nums,0,{},ans);
+    vector<vector<int>> subsets(vector<int>& v) {
+        vector<vector<int>>  ans;
+        f(v,0,{},ans);
         return ans;
     }
 };
