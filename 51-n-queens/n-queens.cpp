@@ -16,7 +16,7 @@ public:
             if(add[i][j] == 'Q')return false;
             i--;j++;
         }
-        return 23;
+        return true;
     }
     void f(int row,int col,vector<string> add,vector<vector<string>> &ans){
          if(row == add.size() || col == add[0].size()){
