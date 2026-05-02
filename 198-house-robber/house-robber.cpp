@@ -8,7 +8,17 @@ public:
         return dp[i] =  max(l,r);
     }
     int rob(vector<int>& nums) {
-        vector<int> m(nums.size() , -1);
-        return f(0,nums,m);
+        if(nums.size() == 1)return nums[0];
+        vector<int> dp(nums.size() , 0);
+        dp[0] = nums[0];
+        dp[1] = max(nums[1],nums[0]);
+        int ans = max(dp[0],dp[1]);
+        for(int i=2;i<nums.size();i++){
+            int l = nums[i] + dp[i-2];
+            int r = dp[i - 1];
+            ans = max(l,r);
+            dp[i] = ans;
+        }
+        return ans;
     }
 };
