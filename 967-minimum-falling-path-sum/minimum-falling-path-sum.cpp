@@ -11,18 +11,20 @@ public:
     }
     int minFallingPathSum(vector<vector<int>>& g) {
         int ans = INT_MAX, i = 0, j = 0;
-        vector<vector<int>> d(g.size(), vector<int> (g.size(), 0));
-        d[g.size() - 1] = g[g.size() - 1];
+        vector<int> d;
+        d = g[g.size() - 1];
         for(int i = g.size() - 2; i > -1; i--){
+            vector<int> c (g.size(), -1);
             for(int j = 0; j < g.size(); j++){
                 int bl = INT_MAX, bb = INT_MAX, br = INT_MAX;
-                if(j - 1 < g.size()) bl = d[i + 1][j - 1] + g[i][j];
-                bb = d[i + 1][j] + g[i][j];
-                if(j + 1 < g.size()) br = d[i + 1][j + 1] + g[i][j];
-                d[i][j] = min(bl,min(br,bb));
+                if(j - 1 < g.size()) bl = d[j - 1] + g[i][j];
+                bb = d[j] + g[i][j];
+                if(j + 1 < g.size()) br = d[j + 1] + g[i][j];
+                c[j] = min(bl,min(br,bb));
             }
+            d = c;
         }
-        for(auto i : d[0]) ans = min(ans, i);
+        for(auto i : d) ans = min(ans, i);
         return ans;
     }
 };
