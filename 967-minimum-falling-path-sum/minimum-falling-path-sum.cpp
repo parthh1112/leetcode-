@@ -10,6 +10,7 @@ public:
         return d[i][j] = min(bl,min(bb,br)); 
     }
     int minFallingPathSum(vector<vector<int>>& g) {
+        // tc = n*n & sc = n (best approach)
         int ans = INT_MAX, i = 0, j = 0;
         vector<int> d;
         d = g[g.size() - 1];
