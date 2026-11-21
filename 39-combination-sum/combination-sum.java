@@ -1,14 +1,14 @@
 class Solution {
     void f(int []arr, int t, int i, int sum, List<Integer> help, List<List<Integer>> ans){
-        if(sum > t || i == arr.length)return ;
+        if(i == arr.length || sum > t)return ;
         if(sum == t){
             ans.add(new ArrayList<>(help));
             return ;
         }
+        f(arr, t, i+1, sum, help, ans);
         help.add(arr[i]);
         f(arr, t, i, sum + arr[i], help, ans);
         help.removeLast();
-        f(arr, t, i+1, sum, help, ans);
 
 
     }
